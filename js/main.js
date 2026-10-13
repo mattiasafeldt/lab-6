@@ -49,4 +49,17 @@ function showRecipe(recipe) {
     let recipeEl = document.querySelector("#recipe");
     recipeEl.replaceChildren(); // Rensar tidigare recept
 
+    //Skapar ett nytt article-element med receptets namn och bild.
+    let article = document.createElement("article");
+    let heading = document.createElement("h3");
+    heading.textContent = recipe.name;
+    let image = document.createElement("img");
+    image.src = recipe.image;
+    image.alt = recipe.name;
+
+    article.appendChild(heading);
+    article.appendChild(image);
+    recipeEl.appendChild(article);
+}
+
 
