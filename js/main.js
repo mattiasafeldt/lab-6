@@ -7,6 +7,8 @@
 const searchFormEl = document.querySelector("#searchform");
 const searchInputEl = document.querySelector("#search");
 const errorEl = document.querySelector("#error");
+const recipeEl = document.querySelector("#recipe");
+const messageEl = document.querySelector("#message");
 
 // Event listener för formuläret
 searchFormEl.addEventListener("submit", async function (event) {
@@ -36,6 +38,8 @@ searchFormEl.addEventListener("submit", async function (event) {
     const recipe = data.recipes[0];
   } catch (error) {
     errorEl.textContent = "Något gick fel. Försök igen senare.";
+    messageEl.textContent = "";
     console.error(error);
   }
 });
+
