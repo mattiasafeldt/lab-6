@@ -17,6 +17,7 @@ searchFormEl.addEventListener("submit", async function (event) {
   // Visar felmeddelande om formuläret är tomt, annars loggas sökordet i konsolen.
   const searchTerm = searchInputEl.value.trim();
   errorEl.textContent = "";
+  messageEl.textContent = "";
   if (searchTerm === "") {
     errorEl.textContent = "Skriv in ett sökord!";
     return;
@@ -31,15 +32,21 @@ searchFormEl.addEventListener("submit", async function (event) {
     }
     const data = await response.json();
     if (data.recipes.length === 0) {
-        errorEl.textContent = "Inga recept hittades för sökordet.";
+        messageEl.textContent = "Inga recept hittades för sökordet.";
         return;
     }
     // Väljer första receptet i sökresultatet.
     const recipe = data.recipes[0];
+    showRecipe(recipe);
   } catch (error) {
-    errorEl.textContent = "Något gick fel. Försök igen senare.";
-    messageEl.textContent = "";
+    messageEl.textContent = "Något gick fel. Försök igen senare.";
     console.error(error);
   }
 });
+
+// Funktion som visar receptets namn och bild på sidan.
+function showRecipe(recipe) {
+    let recipeEl = document.querySelector("#recipe");
+    recipeEl.replaceChildren(); // Rensar tidigare recept
+
 
