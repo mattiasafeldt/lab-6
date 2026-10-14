@@ -4,6 +4,7 @@
  * Namn: Mattias Åfeldt
  */
 
+// Hämtar element från DOM.
 const searchFormEl = document.querySelector("#searchform");
 const searchInputEl = document.querySelector("#search");
 const errorEl = document.querySelector("#error");
@@ -22,6 +23,8 @@ searchFormEl.addEventListener("submit", async function (event) {
     errorEl.textContent = "Skriv in ett sökord!";
     return;
   }
+  //Tar bort tidigare recept från sidan vid en ny sökning.
+  document.querySelector("#recipe").replaceChildren();
   // Hämtar recept från API:et med hjälp av fetch och async/await, samt visar eventuella fel.
   try {
     // Omvandlar API-svarets JSON-data till ett JavaScript-objekt.
