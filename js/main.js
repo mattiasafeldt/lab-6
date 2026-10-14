@@ -44,7 +44,7 @@ searchFormEl.addEventListener("submit", async function (event) {
   }
 });
 
-// Funktion som visar receptets namn och bild på sidan.
+// Funktion som visar receptets namn, bild, info, ingredienser och instruktioner på sidan.
 function showRecipe(recipe) {
     let recipeEl = document.querySelector("#recipe");
     recipeEl.replaceChildren(); // Rensar tidigare recept
@@ -75,10 +75,23 @@ function showRecipe(recipe) {
     ingredientsHeading.textContent = "Ingredients:";
     let ingredientsList = document.createElement("ul");
 
+    // for-loop som skapar en lista med ingredienser.
     for (let i = 0; i < recipe.ingredients.length; i++) {
       let item = document.createElement("li");
       item.textContent = recipe.ingredients[i];
       ingredientsList.appendChild(item);
+    }
+
+    // Visar receptets instruktioner på sidan.
+    let instructionsHeading = document.createElement("h4");
+    instructionsHeading.textContent = "Instructions:";
+    let instructionsList = document.createElement("ol");
+
+    // for-loop som skapar en lista med instruktioner.
+    for (let i = 0; i < recipe.instructions.length; i++) {
+      let item = document.createElement("li");
+      item.textContent = recipe.instructions[i];
+      instructionsList.appendChild(item);
     }
 
 
@@ -87,6 +100,8 @@ function showRecipe(recipe) {
     article.appendChild(info);
     article.appendChild(ingredientsHeading);
     article.appendChild(ingredientsList);
+    article.appendChild(instructionsHeading);
+    article.appendChild(instructionsList);
     recipeEl.appendChild(article);
 }
 
