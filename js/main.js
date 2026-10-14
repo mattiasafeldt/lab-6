@@ -62,15 +62,31 @@ function showRecipe(recipe) {
     let servings = document.createElement("p");
     servings.textContent = "Servings: " + recipe.servings;
     let prepTime = document.createElement("p");
-    prepTime.textContent = "Prep time: " + recipe.prepTime;
+    prepTime.textContent = "Prep time: " + recipe.prepTimeMinutes + " minutes";
     let cookTime = document.createElement("p");
-    cookTime.textContent = "Cook time: " + recipe.cookTime; 
+    cookTime.textContent = "Cook time: " + recipe.cookTimeMinutes + " minutes";
     let difficulty = document.createElement("p");
     difficulty.textContent = "Difficulty: " + recipe.difficulty;
+
+    info.append(servings, prepTime, cookTime, difficulty);
+
+    // Visar receptets ingredienser på sidan.
+    let ingredientsHeading = document.createElement("h4");
+    ingredientsHeading.textContent = "Ingredients:";
+    let ingredientsList = document.createElement("ul");
+
+    for (let i = 0; i < recipe.ingredients.length; i++) {
+      let item = document.createElement("li");
+      item.textContent = recipe.ingredients[i];
+      ingredientsList.appendChild(item);
+    }
+
 
     article.appendChild(heading);
     article.appendChild(image);
     article.appendChild(info);
+    article.appendChild(ingredientsHeading);
+    article.appendChild(ingredientsList);
     recipeEl.appendChild(article);
 }
 
