@@ -14,7 +14,7 @@ const messageEl = document.querySelector("#message");
 searchFormEl.addEventListener("submit", async function (event) {
   // Hanterar sökning i formuläret utan att sidan laddas om.  
   event.preventDefault();
-  // Visar felmeddelande om formuläret är tomt, annars loggas sökordet i konsolen.
+  // Visar felmeddelande om formuläret är tomt och tar bort mellanslag i början och i slutet.
   const searchTerm = searchInputEl.value.trim();
   errorEl.textContent = "";
   messageEl.textContent = "";
@@ -94,7 +94,7 @@ function showRecipe(recipe) {
       instructionsList.appendChild(item);
     }
 
-
+    //Lägger till alla element i article-elementet och lägger artiklen på sidan så att receptet visas.
     article.appendChild(heading);
     article.appendChild(image);
     article.appendChild(info);
