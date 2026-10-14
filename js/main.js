@@ -56,9 +56,21 @@ function showRecipe(recipe) {
     let image = document.createElement("img");
     image.src = recipe.image;
     image.alt = recipe.name;
+    // Receptets info.
+    let info = document.createElement("div");
+    info.className = "recipe-info";
+    let servings = document.createElement("p");
+    servings.textContent = "Servings: " + recipe.servings;
+    let prepTime = document.createElement("p");
+    prepTime.textContent = "Prep time: " + recipe.prepTime;
+    let cookTime = document.createElement("p");
+    cookTime.textContent = "Cook time: " + recipe.cookTime; 
+    let difficulty = document.createElement("p");
+    difficulty.textContent = "Difficulty: " + recipe.difficulty;
 
     article.appendChild(heading);
     article.appendChild(image);
+    article.appendChild(info);
     recipeEl.appendChild(article);
 }
 
