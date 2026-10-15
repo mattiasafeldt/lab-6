@@ -11,7 +11,7 @@ const errorEl = document.querySelector("#error");
 const recipeEl = document.querySelector("#recipe");
 const messageEl = document.querySelector("#message");
 
-// Event listener för formuläret
+// Event listener för formuläret som kontrollerar sökordet, hanterar eventuella fel och hämtar recept från API:et.
 searchFormEl.addEventListener("submit", async function (event) {
   // Hanterar sökning i formuläret utan att sidan laddas om.  
   event.preventDefault();
@@ -41,7 +41,7 @@ searchFormEl.addEventListener("submit", async function (event) {
     // Väljer första receptet i sökresultatet.
     const recipe = data.recipes[0];
     showRecipe(recipe);
-  } catch (error) {
+  } catch (error) { // Visar felmeddelande om något går fel vid hämtning av recept, samt loggar felet i konsolen.
     messageEl.textContent = "Något gick fel. Försök igen senare.";
     console.error(error);
   }
