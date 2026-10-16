@@ -59,7 +59,7 @@ function showRecipe(recipe) {
     let image = document.createElement("img");
     image.src = recipe.image;
     image.alt = recipe.name;
-    // Receptets info.
+    // Receptets info med värden från API:et med feta etiketter.
     let info = document.createElement("div");
     info.className = "recipe-info";
     let servings = document.createElement("p");
