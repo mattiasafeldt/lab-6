@@ -63,13 +63,17 @@ function showRecipe(recipe) {
     let info = document.createElement("div");
     info.className = "recipe-info";
     let servings = document.createElement("p");
-    servings.textContent = "Servings: " + recipe.servings;
+    servings.innerHTML = "<strong>Servings:</strong> ";
+    servings.append(String(recipe.servings));
     let prepTime = document.createElement("p");
-    prepTime.textContent = "Prep time: " + recipe.prepTimeMinutes + " minutes";
+    prepTime.innerHTML = "<strong>Prep time:</strong> ";
+    prepTime.append(String(recipe.prepTimeMinutes) + " minutes");
     let cookTime = document.createElement("p");
-    cookTime.textContent = "Cook time: " + recipe.cookTimeMinutes + " minutes";
+    cookTime.innerHTML = "<strong>Cooking time:</strong> ";
+    cookTime.append(String(recipe.cookTimeMinutes) + " minutes");
     let difficulty = document.createElement("p");
-    difficulty.textContent = "Difficulty: " + recipe.difficulty;
+    difficulty.innerHTML = "<strong>Difficulty:</strong> ";
+    difficulty.append(recipe.difficulty);
 
     info.append(servings, prepTime, cookTime, difficulty);
 
